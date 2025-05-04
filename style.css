@@ -1,18 +1,19 @@
+/* Reset and base styles */
 body {
-  font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 0;
-  background: linear-gradient(135deg, #e1b443 0%, #ce9384 100%);
-  color: #333;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* Header */
 header {
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  color: white;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+  background: linear-gradient(to right, #ff512f, #dd2476);
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 nav {
@@ -24,73 +25,137 @@ nav {
 nav ul {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
+  color: #fff;
   font-weight: bold;
-  transition: color 0.3s;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: #ffd700;
 }
 
+.logo {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
 /* Hero Section */
 #hero {
   text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-  color: #222;
-  animation: fadeInDown 1s ease-out;
+  padding: 5rem 2rem;
+  background: linear-gradient(to top right, #00c6ff, #0072ff);
+  position: relative;
+  overflow: hidden;
 }
 
-#hero img {
-  width: 140px;
-  height: 140px;
+.profile-pic {
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  border: 5px solid #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  margin-bottom: 1.5rem;
 }
 
 .highlight {
   color: #ff4081;
 }
 
-/* Sections */
+.typing {
+  font-size: 1.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+  width: 0;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* About and Contact Sections */
 section {
-  padding: 3rem 2rem;
-  max-width: 1100px;
+  padding: 4rem 2rem;
+  max-width: 1000px;
   margin: auto;
+  text-align: center;
 }
 
 /* Project Cards */
-.project {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 15px;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-  margin-bottom: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  transform-style: preserve-3d;
+.project-card {
   perspective: 1000px;
+  display: inline-block;
+  margin: 1.5rem;
 }
 
-.project:hover {
-  transform: rotateY(8deg) rotateX(4deg) scale(1.03);
-  box-shadow: 0 25px 40px rgba(0,0,0,0.3);
+.card-inner {
+  width: 280px;
+  height: 350px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+  position: relative;
 }
 
-.project img {
+.project-card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
   width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+  height: 100%;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
-/* Contact Links */
+.card-front {
+  background: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card-front img {
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card-back {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: #fff;
+  transform: rotateY(180deg);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back a {
+  color: #ffd700;
+  margin-top: 1rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Contact */
 #contact ul {
   list-style: none;
   padding: 0;
@@ -101,38 +166,22 @@ section {
 }
 
 #contact a {
-  color: #2575fc;
+  color: #00e0ff;
   text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
 }
 
 #contact a:hover {
-  color: #6a11cb;
+  color: #ffd700;
 }
 
-/* Footer */
 footer {
+  background: #111;
+  color: #bbb;
   text-align: center;
-  padding: 1rem;
-  background: linear-gradient(90deg, #1f1c2c, #928dab);
-  color: white;
-  margin-top: 2rem;
+  padding: 1.5rem 0;
 }
 
-/* Animations */
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-  /* Bubbles Animation */
+/* Bubble Background */
 .bubbles {
   position: fixed;
   top: 0;
@@ -145,95 +194,32 @@ footer {
 
 .bubbles span {
   position: absolute;
-  display: block;
-  width: 30px;
-  height: 30px;
-  background: rgba(255, 255, 255, 0.2);
-  bottom: -50px;
+  bottom: -150px;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  animation: rise 20s infinite ease-in;
+  animation: bubble 20s linear infinite;
+  left: calc(100% * var(--i) / 30);
 }
 
-.bubbles span:nth-child(1) {
-  left: 10%;
-  width: 20px;
-  height: 20px;
-  animation-duration: 15s;
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.bubbles span:nth-child(2) {
-  left: 20%;
-  width: 30px;
-  height: 30px;
-  animation-duration: 20s;
-}
-
-.bubbles span:nth-child(3) {
-  left: 25%;
-  width: 15px;
-  height: 15px;
-  animation-duration: 12s;
-  background: rgba(255, 255, 255, 0.4);
-}
-
-.bubbles span:nth-child(4) {
-  left: 40%;
-  width: 35px;
-  height: 35px;
-  animation-duration: 18s;
-}
-
-.bubbles span:nth-child(5) {
-  left: 55%;
-  width: 25px;
-  height: 25px;
-  animation-duration: 14s;
-}
-
-.bubbles span:nth-child(6) {
-  left: 65%;
-  width: 20px;
-  height: 20px;
-  animation-duration: 17s;
-}
-
-.bubbles span:nth-child(7) {
-  left: 70%;
-  width: 30px;
-  height: 30px;
-  animation-duration: 22s;
-  background: rgba(255, 255, 255, 0.25);
-}
-
-.bubbles span:nth-child(8) {
-  left: 80%;
-  width: 40px;
-  height: 40px;
-  animation-duration: 19s;
-}
-
-.bubbles span:nth-child(9) {
-  left: 90%;
-  width: 22px;
-  height: 22px;
-  animation-duration: 16s;
-}
-
-.bubbles span:nth-child(10) {
-  left: 50%;
-  width: 28px;
-  height: 28px;
-  animation-duration: 21s;
-}
-
-@keyframes rise {
+@keyframes bubble {
   0% {
     transform: translateY(0) scale(1);
-    opacity: 0.7;
+    opacity: 0.4;
   }
   100% {
-    transform: translateY(-1000px) scale(1.5);
+    transform: translateY(-100vh) scale(1.5);
     opacity: 0;
   }
+}
+
+.bubbles span:nth-child(even) {
+  width: 30px;
+  height: 30px;
+  animation-duration: 25s;
+}
+
+.bubbles span:nth-child(odd) {
+  animation-duration: 18s;
 }

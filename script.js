@@ -1,21 +1,13 @@
-// Scroll fade-in animation
-const sections = document.querySelectorAll('section');
+// Generate floating bubbles
+window.addEventListener('DOMContentLoaded', () => {
+  const bubbleContainer = document.createElement('div');
+  bubbleContainer.className = 'bubbles';
 
-window.addEventListener('scroll', () => {
-  sections.forEach(sec => {
-    const top = window.scrollY;
-    const offset = sec.offsetTop - 300;
-    const height = sec.offsetHeight;
-    if (top > offset && top < offset + height) {
-      sec.style.opacity = 1;
-      sec.style.transform = 'translateY(0)';
-    }
-  });
-});
+  for (let i = 0; i < 30; i++) {
+    const span = document.createElement('span');
+    span.style.setProperty('--i', i);
+    bubbleContainer.appendChild(span);
+  }
 
-// Set initial state
-sections.forEach(sec => {
-  sec.style.opacity = 0;
-  sec.style.transform = 'translateY(40px)';
-  sec.style.transition = 'all 0.6s ease-out';
+  document.body.appendChild(bubbleContainer);
 });

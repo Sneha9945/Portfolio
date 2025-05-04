@@ -5,15 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SNEHA A | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="bubbles">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-  </div>  
   <header>
     <nav>
-      <h1>SNEHA A</h1>
+      <h1 class="logo">SNEHA A</h1>
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -23,9 +20,9 @@
   </header>
 
   <section id="hero">
-    <img src="assets/profile.jpg" alt="My photo">
+    <img class="profile-pic" src="assets/profile.jpg" alt="My photo">
     <h2>Hello, I'm <span class="highlight">Sneha A</span></h2>
-    <p>Aspiring Frontend Developer | Open to Opportunities</p>
+    <p class="typing" >Aspiring Frontend Developer | Open to Opportunities</p>
   </section>
 
   <section id="about">
@@ -35,20 +32,32 @@
 
   <section id="projects">
     <h2>Projects</h2>
-    <div class="project">
-      <img src="assets/airline.jpg" alt="project1">
-      <h3>Airline Reservation System</h3>
-      <p>A responsive system for booking and managing flights using Java and MySQL.</p>
-      <a href="https://github.com/Sneha9945/Airline-Reservation.git" target="_blank">View on GitHub</a>
+    <div class="project-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/airline.jpg" alt="Airline Reservation System">
+          <h3>Airline Reservation</h3>
+        </div>
+        <div class="card-back">
+          <p>A responsive system for booking and managing flights using Java and MySQL.</p>
+          <a href="https://github.com/Sneha9945/Airline-Reservation.git" target="_blank">View on GitHub</a>
+        </div>
+      </div>
     </div>
-    <div class="project">
-      <img src="assets/reverse.jpg" alt="project2">
-      <h3>Reverse Video with OpenCV</h3>
-      <p>A Python-based project that reverses videos using OpenCV.</p>
-      <a href="https://github.com/Sneha9945/Reverse-Video.git" target="_blank">View on GitHub</a>
+    <div class="project-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="assets/reverse.jpg" alt="Reverse Video">
+          <h3>Reverse Video with OpenCV</h3>
+        </div>
+        <div class="card-back">
+          <p>A Python-based project that reverses videos using OpenCV.</p>
+          <a href="https://github.com/Sneha9945/Reverse-Video.git" target="_blank">View on GitHub</a>
+        </div>
+      </div>
     </div>
   </section>
-  
+
   <section id="contact">
     <h2>Contact</h2>
     <p>Feel free to reach out through email or social media.</p>
